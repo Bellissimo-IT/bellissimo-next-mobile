@@ -1,0 +1,24 @@
+{
+  "name": "bellissimo-next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "i18next": "^20.2.4",
+    "next": "10.2.0",
+    "next-compose-plugins": "^2.2.1",
+    "next-images": "^1.7.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-i18next": "^11.8.15",
+    "react-modal": "^3.13.1",
+    "react-yandex-maps": "^4.6.0"
+  },
+  "devDependencies": {
+    "file-loader": "^6.2.0"
+  }
+}
