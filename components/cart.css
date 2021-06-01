@@ -21,44 +21,8 @@ header .log-in-back-btn img {
   margin-right: 10px;
 }
 
-header nav .burger-container span {
-  width: 20px;
-  height: 2px;
-  display: block;
-  margin-bottom: 3px;
-  background: white;
-  border-radius: 100px;
-}
-header nav .burger-container span:last-child {
-  margin: 0;
-}
 header nav .nav-items-block.active {
   left: 0;
-}
-header nav .nav-items-block .logo-container img {
-  width: 45px;
-  margin-right: 10px;
-}
-header nav .nav-items-block .logo-container .logo-text h1 {
-  font-weight: 800;
-}
-header nav .nav-items-block .location-block {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 15px;
-  line-height: 17px;
-}
-header nav .nav-items-block .location-block p {
-  padding: 10px 0;
-}
-header nav .nav-items-block .hr {
-  width: 100%;
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.15);
 }
 header nav .nav-items-block .language-container {
   width: 100%;
@@ -81,47 +45,6 @@ header nav .nav-items-block .language-container div {
 header nav .nav-items-block .language-container div.active {
   background: white;
   color: black;
-}
-header nav .nav-items-block a.call-us-con {
-  display: block;
-  padding: 7px 0;
-  color: #aaaaaa;
-  border: solid 1px #aaa;
-  border-radius: 25px;
-  width: 100%;
-}
-header nav .nav-items-block .call-us {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-header nav .nav-items-block .feedback {
-  display: block;
-  margin-top: 15px;
-  color: #aaaaaa;
-}
-header nav .basket {
-  position: relative;
-}
-header nav .basket .cart-count {
-  z-index: 1;
-  top: -10px;
-  right: -10px;
-  position: absolute;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 10px;
-  line-height: 11px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #FFFFFF;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background: #00AB49;
 }
 /* 
 .main-wrapper .products-container .text-block h4 {

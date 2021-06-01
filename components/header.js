@@ -96,12 +96,18 @@ const BurgerCancelSpanSecond = styled(BurgerCancelSpan)`
 `
 
 const NavBlocksMain = styled.div`
-  padding: 10px 0;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 17px;
+`
+
+const NavBlocksMainP = styled.p`
+  padding: 10px 0;
 `
 
 const NavBlockPhoto = styled(Image)`
@@ -131,6 +137,71 @@ const CurrentLocationImg = styled(Image)`
   margin-left: 50px;
 `
 
+const CallUsSoon = styled.a`
+  display: block;
+  padding: 7px 0;
+  color: #aaaaaa;
+  border: solid 1px #aaa;
+  border-radius: 25px;
+  width: 100%;
+`
+
+const CallUs = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`
+
+const FeedBack = styled.a`
+  display: block;
+  margin-top: 15px;
+  color: #aaaaaa;
+`
+
+const BurgerContainerSpan = styled.span`
+  width: 20px;
+  height: 2px;
+  display: block;
+  margin-bottom: 3px;
+  background: white;
+  border-radius: 100px;
+`
+
+const BurgerContainerSpanLast = styled.span`
+  margin: 0;
+`
+
+const CartCount = styled.div`
+  z-index: 1;
+  top: -10px;
+  right: -10px;
+  position: absolute;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #00AB49;
+`
+
+const Basket = styled.div`
+  position: relative;
+`
+
+const Hr = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.15);
+`
+
 function Header({props, headerTitle}) {
     const { t } = useTranslation();
 
@@ -141,55 +212,52 @@ function Header({props, headerTitle}) {
 
     return (
         <HeaderContainer>
-            <Nav className="navbar">
+            <Nav>
                 <NavItemsBlock className={`nav-items-block ${active}`} id="nav-block">
-                    <LogoContainer className="logo-container">
-                    <a href="/"><img src={"../imgs/logo.png"} alt="" /></a>
+                    <LogoContainer>
+                    <a href="/"><Image width="170" height="45" src={"/imgs/logo.png"} alt="" /></a>
                         <BurgerCancel onClick={function(){setActive(''); document.querySelector('body').classList.remove('fixed');}}>
                             <BurgerCancelSpanFirst></BurgerCancelSpanFirst>
                             <BurgerCancelSpanSecond></BurgerCancelSpanSecond>
                         </BurgerCancel>
                     </LogoContainer>
-                    <NavBlocksMain className="nav-blocks location-block">
+                    <NavBlocksMain>
                         <CurrentLocationContainer className="current-location-container" id="location-list-activator" onClick={function(){document.getElementById('location-list').classList.toggle('active');}}>
                         <img src={"../imgs/map-pin.svg"} alt="" />
-                            <p id="current-location-text">{t('tashkent')}</p>
+                            <NavBlocksMainP id="current-location-text">{t('tashkent')}</NavBlocksMainP>
                             <CurrentLocationImg width="10" height="10" src={"/imgs/arrow.svg"} alt="" />
                         </CurrentLocationContainer>
-                        <LocationList className="location-list" id="location-list">
-                            <p id="tashkent" name="tashkent" value="0">Ташкент</p>
-                            <p id="andijan" name="andijan" value="1">Андижан</p>
-                            <p id="samarkand" name="samarkand" value="2">Самарканд</p>
+                        <LocationList>
+                            <NavBlocksMainP id="tashkent" name="tashkent" value="0">Ташкент</NavBlocksMainP>
+                            <NavBlocksMainP id="andijan" name="andijan" value="1">Андижан</NavBlocksMainP>
+                            <NavBlocksMainP id="samarkand" name="samarkand" value="2">Самарканд</NavBlocksMainP>
                         </LocationList>
                     </NavBlocksMain>
-                    <div className="hr"></div>
-
+                    <Hr></Hr>
                     <NavItems />
-
                     <LanguageBtn />
-                    <a href="tel:1174" className="call-us-con">
-                        <div className="call-us">
+                    <CallUsSoon href="tel:1174">
+                        <CallUs>
                             <img src="" alt="" />
                             <p>Позвонить нам</p>
-                        </div>
-                    </a>
-                    <a href="" className="feedback">Есть жалоба?</a>
+                        </CallUs>
+                    </CallUsSoon>
+                    <FeedBack href="">Есть жалоба?</FeedBack>
                 </NavItemsBlock>
-                <div className="burger-container" id="burger" onClick={function(){setActive('active'); document.querySelector('body').classList.add('fixed');}}>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <div onClick={function(){setActive('active'); document.querySelector('body').classList.add('fixed');}}>
+                    <BurgerContainerSpan></BurgerContainerSpan>
+                    <BurgerContainerSpan></BurgerContainerSpan>
+                    <BurgerContainerSpanLast></BurgerContainerSpanLast>
                 </div>
                 <p>{headerTitle}</p>
                 <a href="cart">
-                    <div className="basket">
+                    <Basket>
                         <img src={"../../imgs/shopping-cart.svg"} alt="" />
-                        <div className="cart-count">
-                            <p id="cart-count">{count}</p>
-                        </div>
-                    </div>
+                        <CartCount>
+                            <p>{count}</p>
+                        </CartCount>
+                    </Basket>
                 </a>
-                
             </Nav>
         </HeaderContainer>
     )

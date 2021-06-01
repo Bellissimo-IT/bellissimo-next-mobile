@@ -1,12 +1,28 @@
 // import pizzaImg from '../../../public/imgs/pizza,svg'
+import Image from 'next/image'
+import styled from "styled-components";
+
+
+const NavBlocks = styled.div`
+    padding: 10px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+`
+
+const P = styled.p`
+    margin-left: 15px;
+`
 
 function NavItemsCon(props) {
     return (
         <a href={props.href}>
-            <div className="nav-blocks log-in">
-                <img src={props.img} alt="" />
-                <p id="log-in" value="login">{props.name}</p>
-            </div>
+            <NavBlocks>
+                <Image width="20" height="20" src={props.img} alt="" />
+                <P id="log-in" value="login">{props.name}</P>
+            </NavBlocks>
         </a>
     )
 }
