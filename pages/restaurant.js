@@ -79,9 +79,7 @@ function Restaurant() {
                 <RestaurantTextContainer>
                     <H5>{item.name}</H5>
                     <P>{item.address}</P>
-                    <div>
-                        <p>{item.time}</p>
-                    </div>
+                    <p>{item.time}</p>
                 </RestaurantTextContainer>
                 <PhoneMarker>
                     <PhoneMarkerImg width="25" height="25" src="/imgs/pin.svg" alt="" />

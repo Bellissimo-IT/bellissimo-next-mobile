@@ -64,6 +64,17 @@ const BtnBlock = styled.div`
     width: 100%;
 `
 
+const NotGetBg = styled.div`
+    position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.1);
+  display: block;
+`
+
 function PizzaDelivered() {
     const [modalIsOpen,setIsOpen] = React.useState(false);
     function openModal() {
@@ -79,7 +90,7 @@ function PizzaDelivered() {
         onRequestClose={closeModal}
         style={customStyles}
     >
-            <div className="didnt-get-bg active" onClick={closeModal}></div>
+            <NotGetBg onClick={closeModal}></NotGetBg>
             <PopUpContainer>
                 <H3>Заказ еще не доставили?</H3>
                 <span>
@@ -94,11 +105,11 @@ function PizzaDelivered() {
                     <h3>Доставлен</h3>
                     <p>Ваш заказ доставлен.</p>
                 </div>
-                <img src="imgs/pizza-deliver.svg" alt="" />
+                <Image width="50" height="50" src="/imgs/pizza-deliver.svg" alt="" />
             </DeliveredBlock>
             <BtnBlock>
                 <Button margin type={"white"} shadow className="didnt-get-order" onClick={openModal}>Заказ не получен?</Button>
-                <a href="/order-history"><Button margin shadow className="my-orders">Мои заказы</Button></a>
+                <a href="/order-history"><Button margin shadow>Мои заказы</Button></a>
             </BtnBlock>
         </CurrentStatus>
     </>
