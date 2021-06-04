@@ -52,16 +52,16 @@ const Nav = styled.nav`
 
 const NavItemsBlock = styled.div`
   overflow: scroll;
-  z-index: 2;
+  z-index: 200;
   width: 261px;
   position: absolute;
-  left: -100%;
+  left: ${props => props.active ? "0" : "-100%"};
   top: 0;
-  background: #000;
-  background: #29343A;
+  background: rgba(41, 52, 58, .7);
   height: 100%;
   padding: 20px;
   transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 `
 
 const LogoContainer = styled.div`
@@ -107,7 +107,7 @@ const NavBlocksMain = styled.div`
 `
 
 const NavBlocksMainP = styled.p`
-  padding: 10px 0;
+  padding: 5px 1em;
 `
 
 const NavBlockPhoto = styled(Image)`
@@ -117,18 +117,19 @@ const NavBlockPhoto = styled(Image)`
 const LocationList = styled.div`
   padding-left: 40px;
   width: 100%;
-  height: 0;
+  height: ${props => props.locationActive ? "max-content" : "0"};
   overflow: hidden;
   transition: height 0.3s ease;
 `
 
 const CurrentLocationContainer = styled.div`
-  width: 100%;
+  width: 66%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   position: relative;
+  padding: .5em 0;
 `
 
 const CurrentLocationImg = styled(Image)`
@@ -208,26 +209,28 @@ function Header({props, headerTitle}) {
     const [active, setActive] = React.useState('');
     const [count, setCount] = useState(0);
     const [heght, setHeight] = useState('');
+    const [selected, setSelected] = useState('');
+    const [locationSelceted, LocationSetSelected] = useState();
     
 
     return (
         <HeaderContainer>
             <Nav>
-                <NavItemsBlock className={`nav-items-block ${active}`} id="nav-block">
+                <NavItemsBlock className={`${active}`} active={selected} id="nav-block">
                     <LogoContainer>
                     <a href="/"><Image width="170" height="45" src={"/imgs/logo.png"} alt="" /></a>
-                        <BurgerCancel onClick={function(){setActive(''); document.querySelector('body').classList.remove('fixed');}}>
+                        <BurgerCancel onClick={function(){setSelected(); document.querySelector('body').style.overflow="inherit"}}>
                             <BurgerCancelSpanFirst></BurgerCancelSpanFirst>
                             <BurgerCancelSpanSecond></BurgerCancelSpanSecond>
                         </BurgerCancel>
                     </LogoContainer>
                     <NavBlocksMain>
-                        <CurrentLocationContainer className="current-location-container" id="location-list-activator" onClick={function(){document.getElementById('location-list').classList.toggle('active');}}>
+                        <CurrentLocationContainer className="current-location-container" onClick={function(){LocationSetSelected(!locationSelceted)}}>
                         <img src={"../imgs/map-pin.svg"} alt="" />
                             <NavBlocksMainP id="current-location-text">{t('tashkent')}</NavBlocksMainP>
                             <CurrentLocationImg width="10" height="10" src={"/imgs/arrow.svg"} alt="" />
                         </CurrentLocationContainer>
-                        <LocationList>
+                        <LocationList locationActive={locationSelceted}>
                             <NavBlocksMainP id="tashkent" name="tashkent" value="0">Ташкент</NavBlocksMainP>
                             <NavBlocksMainP id="andijan" name="andijan" value="1">Андижан</NavBlocksMainP>
                             <NavBlocksMainP id="samarkand" name="samarkand" value="2">Самарканд</NavBlocksMainP>
@@ -244,7 +247,7 @@ function Header({props, headerTitle}) {
                     </CallUsSoon>
                     <FeedBack href="">Есть жалоба?</FeedBack>
                 </NavItemsBlock>
-                <div onClick={function(){setActive('active'); document.querySelector('body').classList.add('fixed');}}>
+                <div onClick={function(){setSelected(true); document.querySelector('body').style.overflow="hidden";}}>
                     <BurgerContainerSpan></BurgerContainerSpan>
                     <BurgerContainerSpan></BurgerContainerSpan>
                     <BurgerContainerSpanLast></BurgerContainerSpanLast>

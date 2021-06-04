@@ -27,7 +27,7 @@ const Mainbutton = styled.button`
   background: ${props => getBackgroundColor(props.type)};
   color: ${props => getColor(props.type)};
   border: ${props =>getBorder(props.type)};
-  margin: ${props => props.margin ? "0.5em 0" : "1.5em 0"};
+  margin: ${({margin})=>margin};
   padding: ${props => props.padding  ? "7px 0" : "15px 0"};
   box-shadow: ${props => props.shadow ? "none" : "0px 15px 30px rgba(0, 171, 73, 0.25)"};
   width: ${props => props.width ? "100px" : "100%"};
@@ -40,7 +40,7 @@ const Mainbutton = styled.button`
   text-align: center;
 `;
 
-const Button = ({ type, onClick, children, disabled, margin, padding, shadow, width, fs="18px"}) => {
+const Button = ({ type, onClick, children, disabled, margin="1.5em 0", padding, shadow, width, fs="18px"}) => {
   return (
     <Mainbutton type={type} margin={margin} padding={padding} width={width} shadow={shadow} type={type} onClick={onClick} disabled={disabled} fs={fs}>
       {children}

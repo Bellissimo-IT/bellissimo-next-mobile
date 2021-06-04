@@ -1,43 +1,68 @@
+import styled from "styled-components"
+
+const FixedMenuContainer = styled.div`
+    background: white;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  bottom: 0;
+  overflow-y: scroll;
+  box-shadow: 0px -11px 13px 0px #00000007;
+  z-index: 100;
+`
+
+const Link = styled.div`
+      padding: 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  transition: color 0.3s ease;
+`
+
 function BottomNav() {
     return(
-        <div className="fixed-menu-list-block">
+        <FixedMenuContainer className="fixed-menu-list-block">
             <a href="#pizza">
-                <div className="pizza-menu-link link">
+                <Link className="pizza-menu-link link">
                     <img src="" alt="" />
                     <p>Пицца</p>
-                </div>
+                </Link>
             </a>
             <a href="#garnir">
-                <div className="garnir-menu-link link">
+                <Link className="garnir-menu-link link">
                     <img src="" alt="" />
                     <p>Закуски</p>
-                </div>
+                </Link>
             </a>
             <a href="#salad">
-                <div className="salad-menu-link link">
+                <Link className="salad-menu-link link">
                     <img src="" alt="" />
                     <p>Салаты</p>
-                </div>
+                </Link>
             </a>
             <a href="#drinks">
-                <div className="drinks-menu-link link">
+                <Link className="drinks-menu-link link">
                     <img src="" alt="" />
                     <p>Напитки</p>
-                </div>
+                </Link>
             </a>
             <a href="#desert">
-                <div className="deserts-menu-link link">
+                <Link className="deserts-menu-link link">
                     <img src="" alt="" />
                     <p>Дессерты</p>
-                </div>
+                </Link>
             </a>
             <a href="#souce">
-                <div className="souce-menu-link link">
+                <Link className="souce-menu-link link">
                     <img src="" alt="" />
                     <p>Соусы</p>
-                </div>
+                </Link>
             </a>
-        </div>
+        </FixedMenuContainer>
     )
 }
 

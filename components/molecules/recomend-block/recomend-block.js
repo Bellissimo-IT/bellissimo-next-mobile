@@ -36,6 +36,22 @@ const TextBlock = styled.div`
     justify-content: space-between;
 `
 
+const RecomendButton = styled.button`
+  background: rgb(0,171,73);
+  color: #ffffff;
+  border: none;
+  margin: 0.5em 0;
+  padding: 7px 0;
+  box-shadow: 0px 5px 10px rgb(0 171 73 / 25%);
+  width: 100px;
+  cursor: pointer;
+  border-radius: 100px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 17px;
+  text-align: center;
+`
 
 
 
@@ -46,7 +62,7 @@ function RecomendBlockContainer(props) {
             <TextBlock>
                 <H3>{props.name}</H3>
                 <p>{props.price}</p>
-                <Button margin width padding primary children="Добавить" />
+                <RecomendButton margin width padding primary children="Добавить" />
             </TextBlock>
         </RecomendationBlock>
     </>

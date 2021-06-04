@@ -34,7 +34,7 @@ const Span = styled.span`
   width: 13px;
   height: 3px;
   background: #00AB49;
-  border-radius: 10px;
+  border-radius: 1.5px;
 `
 
 const RotatedSpan = styled(Span)`

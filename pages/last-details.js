@@ -7,7 +7,75 @@ import { useState } from "react"
 import AddressRadio from "../components/atoms/radio-btn/address-radio";
 import TimeList from "../components/atoms/time-list/time-list";
 import SizeChooseBtn1 from "../components/molecules/size-choose-btn/size-choose-btn1";
+import styled from "styled-components";
 // import LastDetail from "../components/last-field/last-field";
+
+const FixedOrderBtn = styled.div`
+    position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0px -9px 27px 8px rgba(0,0,0,0.05)  ;
+  backdrop-filter: blur(3px);
+  border-radius: 15px 15px 0 0;
+  padding: 15px;
+`
+const MainWrapper = styled.div`
+    padding: 15px;
+`
+const FilialContainer = styled.div`
+    border-radius: 15px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
+  padding: 25px 20px;
+  margin-bottom: 25px;
+`
+const LastBlock = styled(FilialContainer)`
+    margin-bottom: 80px;
+` 
+const ChooseBtn = styled.div`
+    border-radius: 15px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
+  padding: 25px 20px;
+  margin-bottom: 25px;
+`
+const Blocks = styled.div`
+    padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 15px;
+`
+const H3 = styled.h3`
+    font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 26px;
+  margin-bottom: 10px;
+`
+const H4 = styled.h4`
+    font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 140%;
+  /* or 21px */
+  color: #000000;
+`
+const H2 = styled.h2`
+    font-weight: 700;
+    font-size: 22px;
+`
+const OrderTimeContainer = styled.div`
+    margin-bottom: 80px;
+    
+`
+const TimeChooseContainer = styled.div`
+  height: 140px;
+  overflow: scroll;
+  display: grid;
+  border-radius: 15px;
+  grid-template-columns: repeat(2, 49%) !important;
+  grid-gap: 5px;
+`
 
 function Last() {
     const data = [
@@ -54,55 +122,53 @@ function Last() {
     const [selected2, setSelected2] = useState(typeDelivery[0].id)
     return<>
     <Header headerTitle="Оформить заказ" />
-    <div className="main-wrapper">
-        <div className="type-choose order-address">
-            <div className="order-address-container no-shadow">
-                <SizeChooseBtn1 data={typeDelivery} selected2={selected2} setSelected2={setSelected2} />
-            </div>
-        </div>
+    <MainWrapper>
+        <ChooseBtn>
+            <SizeChooseBtn1 data={typeDelivery} selected2={selected2} setSelected2={setSelected2} />
+        </ChooseBtn>
         {selected2===typeDelivery[1].id?
-    <div className="filial">
-        <div className="type-choose order-address">
-            <div className="order-address-container no-shadow">
-            <h2>Филиалы</h2>
-            <AddressRadio className="bla" data={filialData} selected1={selected1} setSelected1={setSelected1}  />
-            </div>
-        </div> 
-        <div className="order-time-container" >
-            <h2>Время приготовления</h2>
-        <Radio data={data} selected={selected} setSelected={setSelected} />
-        {selected===data[1].id?
-        <div className="time-choose-container">
-            <TimeList data={TimeListData} />
-        </div>:''}
+        <div>
+            <FilialContainer>
+                <div>
+                    <H2>Филиалы</H2>
+                    <AddressRadio data={filialData} selected1={selected1} setSelected1={setSelected1}  />
+                </div>
+            </FilialContainer> 
+            <LastBlock>
+                <H2>Время приготовления</H2>
+                <Radio data={data} selected={selected} setSelected={setSelected} />
+                {selected===data[1].id?
+                <TimeChooseContainer>
+                    <TimeList data={TimeListData} />
+                </TimeChooseContainer>:''}
+            </LastBlock>
+            <FixedOrderBtn>
+                <Button margin="0" children="Далее" />
+            </FixedOrderBtn>
         </div>
-        <div className="fixed-order-btn">
-        <Button children="Далее" />
-        </div>
-    </div>
     :
-    <div>
-        <div className="type-choose order-address">
-            <div className="order-address-container no-shadow">
-            <h2>Адреса</h2>
-            <AddressRadio data={addressData} selected1={selected1} setSelected1={setSelected1}  />
-            <Button className="new-order" children="Новый адрес" />
-            </div>
+        <div>
+            <FilialContainer>
+                <div>
+                    <H2>Адреса</H2>
+                    <AddressRadio data={addressData} selected1={selected1} setSelected1={setSelected1}  />
+                    <Button margin="0" children="Новый адрес" />
+                </div>
+            </FilialContainer> 
+            <LastBlock>
+                <H2>Способ доставки</H2>
+                <Radio data={data} selected={selected} setSelected={setSelected} />
+                {selected===data[1].id?
+                <TimeChooseContainer>
+                    <TimeList data={TimeListData} />
+                </TimeChooseContainer>:''}
+            </LastBlock>
+            <FixedOrderBtn>
+                <a href="check-details"><Button margin="0" children="Далее" /></a>
+            </FixedOrderBtn>
         </div> 
-        <div className="order-time-container" >
-            <h2>Способ доставки</h2>
-        <Radio data={data} selected={selected} setSelected={setSelected} />
-        {selected===data[1].id?
-        <div className="time-choose-container">
-            <TimeList data={TimeListData} />
-        </div>:''}
-        </div>
-        <div className="fixed-order-btn">
-        <Button children="Далее" />
-        </div>
-    </div> 
     }
-    </div>
+    </MainWrapper>
     </>
 }
 

@@ -25,7 +25,7 @@ justify-content: space-between;
 padding: 20px;
 border-radius: 8px;
 box-shadow: 0px 15px 15px rgb(0 0 0 / 5%);
-margin-bottom: 15px;
+margin-bottom: 25px;
 display: flex;
 `
 const DeliveredBlock = styled.div`
@@ -96,7 +96,7 @@ function PizzaDelivered() {
                 <span>
                     <p>Доставщик находится в радиусе 500 метров. Он будет с минуты на минуту. Ожидайте, пожалуйста. Если этого не произошло, позвоните на короткий номер <a href="tel:1174">1174</a></p>
                 </span>
-            <a href="tel:1174"><Button margin>Позвонить</Button></a>
+            <a href="tel:1174"><Button margin="25px 0 0 0">Позвонить</Button></a>
             </PopUpContainer>
         </Modal>
         <CurrentStatus>
@@ -108,7 +108,7 @@ function PizzaDelivered() {
                 <Image width="50" height="50" src="/imgs/pizza-deliver.svg" alt="" />
             </DeliveredBlock>
             <BtnBlock>
-                <Button margin type={"white"} shadow className="didnt-get-order" onClick={openModal}>Заказ не получен?</Button>
+                <Button margin="0 0 15px 0" type={"white"} shadow className="didnt-get-order" onClick={openModal}>Заказ не получен?</Button>
                 <a href="/order-history"><Button margin shadow>Мои заказы</Button></a>
             </BtnBlock>
         </CurrentStatus>

@@ -31,16 +31,47 @@ const recomendBlockData = [
 ]
 
 const ProductsContainer = styled.div`
-    padding: 15px 15px 15px 0;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 15px 0;
   position: relative;
   border-radius: 15px;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
   margin-bottom: 20px;
+`
+
+const ProductsContainerFirst = styled(ProductsContainer)`
+    display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 15px 15px 15px 0;
+  position: relative;
+  border-radius: 15px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  margin-bottom: 20px;
+`
+
+const ProductsContainerLast = styled(ProductsContainer)`
+    display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 15px 15px 0 15px;
+  position: relative;
+  border-radius: 15px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  margin-bottom: 20px;
+`
+
+const ProductsContainerText = styled.h2`
+    position: sticky;
+  left: 0;
+  top: 15px;
+  margin-bottom: 1em;
+  font-weight: 500;
 `
 
 const SumContainer = styled.div`
@@ -59,31 +90,60 @@ const SouceRecomendationBlock = styled.div`
     width: 100%;
 `
 
+const RecomendBlockMain = styled(ProductsContainer)`
+    flex-direction: column;
+  align-items: flex-start;
+  overflow-y: scroll;
+  position: relative;
+  padding: 0 15px 15px 15px !important;
+`
+
+const RecomendationContainer = styled.div`
+    padding: 10px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-y: scroll;
+`
+
+const FixedOrderBtn = styled.div`
+    position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0px -9px 27px 8px rgba(0,0,0,0.05)  ;
+  backdrop-filter: blur(3px);
+  border-radius: 15px 15px 0 0;
+  padding: 15px;
+`
+
 function Cart() {
     return<>
         <Header headerTitle="Корзина" />
-        <MainWrapper className="main-wrapper">
-        <ProductsContainer>
+        <MainWrapper>
+        <ProductsContainerFirst>
             <CartImgText />
-        </ProductsContainer>
-        <ProductsContainer className="products-container recommendation">
-            <h2 className="recomend-title">Рекомендуем</h2>
-            <div className="recomendation-container">
+        </ProductsContainerFirst>
+        <RecomendBlockMain>
+            <ProductsContainerText>Рекомендуем</ProductsContainerText>
+            <RecomendationContainer>
                 {recomendBlockData.map(item => <RecomendBlockContainer name={item.name}  img={item.img} price={item.price} />)}
-            </div>
-        </ProductsContainer>
-        <ProductsContainer className="products-container souce-add">
-            <h2>Добавьте соус</h2>
+            </RecomendationContainer>
+        </RecomendBlockMain>
+        <ProductsContainerLast>
+            <ProductsContainerText>Добавьте соус</ProductsContainerText>
             <SouceRecomendationBlock>
                 <SouceBlockContainer />
             </SouceRecomendationBlock>
-        </ProductsContainer>
-        <SumContainer className="sum-container">
+        </ProductsContainerLast>
+        <SumContainer>
             <SumOrderCon />
         </SumContainer>
-        <div className="fixed-order-btn">
-        <Button margin primary children="Оформить" />
-        </div>
+        <FixedOrderBtn>
+            <a href="last-details"><Button margin primary children="Оформить" /></a>
+        </FixedOrderBtn>
         </MainWrapper>
     </>
 }

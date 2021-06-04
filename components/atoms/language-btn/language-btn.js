@@ -3,6 +3,7 @@ import React from "react"
 import i18n from "i18next";
 
 import { useTranslation, initReactI18next } from "react-i18next";
+import styled from "styled-components";
 
 
 i18n
@@ -28,16 +29,38 @@ i18n
     }
   });
 
+const LanguageContainer = styled.div`
+  width: 100%;
+  height: 35px;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 25px;
+  padding: 2px;
+  margin: 15px 0;
+`
+
+const LanguageBlock = styled.div`
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  background: ${props => props.active?"white":"transparent"};
+  color: ${props => props.active?"#323232":"white"};
+`
+
 function LanguageBtn() {
     
     // const [ active, setActive ] = React.useState(i18n.language);
 
     const { t } = useTranslation();
     return(
-        <div className="language-container">
-        <div className={`language ${i18n.language==="uz"?"active":""}`} id="uz" onClick={() => i18n.changeLanguage('uz')}>uz</div>
-        <div className={`language ${i18n.language==="ru"?"active":""}`} id="ru" onClick={() => i18n.changeLanguage('ru')}>ru</div>
-    </div>
+        <LanguageContainer className="language-container">
+          <LanguageBlock className={`language`} active={i18n.language==="uz"} id="uz" onClick={() => i18n.changeLanguage('uz')}>uz</LanguageBlock>
+          <LanguageBlock className={`language`} active={i18n.language==="ru"} id="ru" onClick={() => i18n.changeLanguage('ru')}>ru</LanguageBlock>
+        </LanguageContainer>
     )
 }
 

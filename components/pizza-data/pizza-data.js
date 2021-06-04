@@ -8,7 +8,7 @@ const products = [
                 name: "Чиккен карри", 
                 description: "Говяжий рулет и куриное филе в сочетании с сыром моцарелла, ананасами и соусом карри", 
                 price: "от 47 000 сум", 
-                img: 'https://bellissimo.uz/_next/image?url=https%3A%2F%2Fqa.bellissimo.uz%2Fstorage%2Fphotos%2F45bd4064-2430-4250-899d-d6f834d36c30.jpg&w=750&q=75'
+                img: '/_next/image?url=https%3A%2F%2Fqa.bellissimo.uz%2Fstorage%2Fphotos%2F45bd4064-2430-4250-899d-d6f834d36c30.jpg&w=750&q=75'
             },
             {
                 name: "Сырный цыплёнок", 
@@ -48,7 +48,7 @@ const products = [
         ],
     },
     {
-        title: "соусы",
+        title: "Соусы",
         data: [
             {
                 name: "Картошка фри", 
