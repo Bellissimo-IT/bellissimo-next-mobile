@@ -5,6 +5,7 @@ import CheckFiles from "../components/atoms/check-files/check-files";
 import Radio from "../components/atoms/radio-btn/radio-btn";
 import Header from "../components/header";
 import CartImgText from "../components/molecules/cart-img-text/cart-img-text";
+import PayType from "../components/molecules/form-of-pay-block/form-of-pay-block";
 import InputPayment from "../components/molecules/input-block-payment/input-block-payment";
 
 const MainWrapper = styled.div`
@@ -92,6 +93,7 @@ const Input = styled.input`
 
 function CheckDetails() {
     const [selected, setSelected] = useState('active');
+    const [paySelected, paySetSelected] = useState('');
 
     const checkFilesData = [
         {name: "Ahmadjonov Ikromjon", placeholder: "Имя:"},
@@ -131,36 +133,9 @@ function CheckDetails() {
                 </MainBlock>
             <MainBlock className="order-format-container main-blocks">
                 <MainBlockH3>Форма оплаты</MainBlockH3>
-                <InputBlock className={`input-block type-payment`}>
-                    <div className="input-block type-payment active">
-                        <h5>Наличными</h5>
-                        <div class="block blocks-main">
-                            <div><img src="" alt=""/><p>Без здачи</p></div>
-                            <div><img src="" alt=""/><p>Сдача с 190000</p></div>
-                            <div><img src="" alt=""/><p>Сдача с 200000</p></div>
-                        </div>
-                    </div>
-                </InputBlock>
-                <div className="input-block type-payment">
-                    <div className="input-block type-payment">
-                        <h5>Payme</h5>
-                    </div>
-                </div>
-                <div className="input-block type-payment">
-                    <div className="input-block type-payment">
-                        <h5>Терминал</h5>
-                        <div class="blocks blocks-main">
-                            <div class="block">
-                                <h5>UZCARD</h5>
-                            </div>
-                            <div class="block">
-                                <h5>HUMO</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <PayType onClick={function(){paySetSelected(true)}} />
             </MainBlock>
-            <FixedOrderBtn className="fixed-order-btn">
+            <FixedOrderBtn>
                 <Button margin children="Оформить (Наличными)" />
             </FixedOrderBtn>
         </MainWrapper>

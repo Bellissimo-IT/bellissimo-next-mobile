@@ -16,16 +16,19 @@ const H2 = styled.h2`
 `
 
 function Section(props) {
-    return <div className="pizza-list-container">
-        <Title className="list-title">
-            <H2>{props.title}</H2>
-        </Title>
-        {props.data.map(item=><Pizza img={item.img} name={item.name} description={item.description} price={item.price} href={item.href}/>)}
-    </div>
+    return <> 
+        <a name={props.linkName}></a>
+        <div>
+            <Title>
+                <H2>{props.title}</H2>
+            </Title>
+            {props.data.map(item=><Pizza img={item.img} name={item.name} description={item.description} price={item.price} href={item.href}/>)}
+        </div>
+    </>
 }
 
 function SectionList(props) {
-    return props.products.map(item=><Section title={item.title} data={item.data}/>)
+    return props.products.map(item=><Section linkName={item.linkName} title={item.title} data={item.data}/>)
 }
 
 export default SectionList

@@ -7,6 +7,7 @@ const ChooseBlock = styled.div`
   border-radius: 50px;
   background: linear-gradient(180deg, #F8F8F8 0%, #F5F5F5 100%);
   padding: 3px;
+  margin: .5em 0;
 `
 
 const Block = styled.div`

@@ -39,6 +39,7 @@ const H5 = styled.h5`
   color: #323232;
   margin-bottom: 20px;
   margin-top: 30px;
+  font-weight: 600;
 `
 
 const H2 = styled.h2`
@@ -47,6 +48,34 @@ const H2 = styled.h2`
 
 const P = styled.p`
   color: #c8c8c8;
+`
+
+const Sum = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: space-between;
+  margin-right: 1em;
+`
+
+const SumNumber = styled(H5)`
+  width: max-content;
+  margin: 0 0 0 1em;
+`
+
+const SumName = styled(H5)`
+  margin: 0;
+`
+
+const LowerBlock = styled.div`
+  display: flex;
+  flex-direction :row;
+  align-items: center;
+  margin: 2em 0;
+`
+
+const LowerBtn = styled(Button)`
+  width: 50% !important;
 `
 
 function TypeChoose() {
@@ -63,7 +92,10 @@ function TypeChoose() {
                     <SizeChooseBtn data={["Воздушное", "Тонкое", "Хот-дог борт"]}/>
                     <H5>Выберите ингридиенты</H5>
                     <Ingridient />
-                    <Button primary children="В корзину"/>
+                    <LowerBlock>
+                      <Sum><SumName>Итог:</SumName><SumNumber>45 000 сум</SumNumber></Sum>
+                      <Button margin="0" primary children="В корзину"/>
+                    </LowerBlock>
                 </TypeChooseBlock>
             </PuzzaCunstructBlock>
         </MainContainer>

@@ -3,6 +3,7 @@ import SectionList from "../atoms/section/section";
 const products = [
     {
         title: "Пицца",
+        linkName: "pizza",
         data: [
             {
                 name: "Чиккен карри", 
@@ -20,6 +21,7 @@ const products = [
     },
     {
         title: "Закуски",
+        linkName: "garnir",
         data: [
             {
                 name: "Картошка фри", 
@@ -49,6 +51,7 @@ const products = [
     },
     {
         title: "Соусы",
+        linkName: "souce",
         data: [
             {
                 name: "Картошка фри", 

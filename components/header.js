@@ -13,6 +13,7 @@ import { useTranslation, initReactI18next } from "react-i18next";
 import LanguageBtn from './atoms/language-btn/language-btn';
 import NavItems from './atoms/nav-links/nav-links';
 import styled from 'styled-components';
+import FloatBlockContainer from './atoms/float-block/float-block';
 
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
@@ -108,6 +109,7 @@ const NavBlocksMain = styled.div`
 
 const NavBlocksMainP = styled.p`
   padding: 5px 1em;
+  font-family: "Jost", sans-serif;
 `
 
 const NavBlockPhoto = styled(Image)`
@@ -145,6 +147,7 @@ const CallUsSoon = styled.a`
   border: solid 1px #aaa;
   border-radius: 25px;
   width: 100%;
+  font-family: "Jost", sans-serif;
 `
 
 const CallUs = styled.div`
@@ -158,6 +161,7 @@ const CallUs = styled.div`
 const FeedBack = styled.a`
   display: block;
   margin-top: 15px;
+  font-family: "Jost", sans-serif;
   color: #aaaaaa;
 `
 
@@ -165,6 +169,7 @@ const BurgerContainerSpan = styled.span`
   width: 20px;
   height: 2px;
   display: block;
+  font-family: "Jost", sans-serif;
   margin-bottom: 3px;
   background: white;
   border-radius: 100px;
@@ -172,6 +177,7 @@ const BurgerContainerSpan = styled.span`
 
 const BurgerContainerSpanLast = styled.span`
   margin: 0;
+  font-family: "Jost", sans-serif;
 `
 
 const CartCount = styled.div`
@@ -201,6 +207,26 @@ const Hr = styled.div`
   width: 100%;
   height: 1px;
   background-color: rgba(255, 255, 255, 0.15);
+`
+
+
+const FloatBlock = styled.div`
+  position: fixed;
+  left: 15px;
+  bottom: 70px;
+  right: 90px;
+  padding: 15px ;
+  border-radius: 15px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, .2);
+  background: linear-gradient(90deg,rgba(255,255,255,1) 0%,rgba(255,255,255,0.5) 100%);
+  z-index: 199;
+  backdrop-filter: blur(6px);
+  display: ${props => props.floatActive ? "block" : "none"} ;
+`
+
+const P = styled.p`
+font-weight: 400;
+  text-align: center;
 `
 
 function Header({props, headerTitle}) {
@@ -262,6 +288,7 @@ function Header({props, headerTitle}) {
                     </Basket>
                 </a>
             </Nav>
+            <FloatBlock><P>сырный цыпленек добавлен в корзину</P></FloatBlock>
         </HeaderContainer>
     )
 }
