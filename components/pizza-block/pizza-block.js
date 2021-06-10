@@ -38,7 +38,7 @@ const PizzaBlock = ({name, description, img, price}) => {
             </AboutPizza>
             <AboutPizza className="pizza-price-btn">
                 <h3 className="pizza-price">{price}</h3>
-                <Button children="В корзину" />
+                <Button children="Выбрать" />
             </AboutPizza>
         </div>
     </>

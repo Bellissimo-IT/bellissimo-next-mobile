@@ -1,5 +1,4 @@
 import '../styles/globals.css'
-import '../components/cart.css'
 import "../components/style.css";
 
 
